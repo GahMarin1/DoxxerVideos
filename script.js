@@ -1,4 +1,9 @@
-// Fade ao rolar
+// AGE VERIFICATION
+function enterSite() {
+    document.getElementById("ageModal").style.display = "none";
+}
+
+// FADE AO ROLAR
 function revealOnScroll() {
     const reveals = document.querySelectorAll(".reveal");
 
@@ -15,5 +20,3 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
-
-console.log("%c[DoxxerVideos] Sistema Online", "color: #00ff88; font-size: 16px;");
