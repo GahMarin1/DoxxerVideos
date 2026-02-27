@@ -1,221 +1,79 @@
 /* ========================= */
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* GLITCH PRO (FORTE E LIMPO) */
 /* ========================= */
-/* BODY */
-body {
-  background: #000;
-  color: #00ff88;
-  font-family: 'Courier New', monospace;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
 
-/* ========================= */
-/* MATRIX FUNDO */
-#matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -3;
-}
-
-/* ========================= */
-/* PLASMA VERMELHO */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255,0,0,0.08), transparent 70%);
-  animation: plasmaMove 6s infinite alternate ease-in-out;
-  z-index: -2;
-}
-
-@keyframes plasmaMove {
-  0% { transform: scale(1); opacity: 0.4; }
-  100% { transform: scale(1.2); opacity: 0.7; }
-}
-
-/* ========================= */
-/* BOOT */
-#bootScreen {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.terminal {
-  color: #00ff88;
-  font-size: 18px;
-}
-
-.cursor {
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
-/* ========================= */
-/* HEADER */
-.topbar {
-  text-align: center;
-  padding: 20px;
-  font-size: 22px;
-  letter-spacing: 3px;
-  border-bottom: 1px solid red;
-}
-
-.logo {
-  font-weight: bold;
-}
-
-/* ========================= */
-/* CONTAINER */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
-/* ========================= */
-/* CARDS */
-.card {
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid red;
-  margin-bottom: 25px;
-  padding: 15px;
-  transition: 0.3s;
-  position: relative;
-}
-
-.card:hover {
-  box-shadow: 0 0 15px red;
-  transform: translateY(-3px);
-}
-
-/* ========================= */
-/* TITULOS */
-.title {
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-/* ========================= */
-/* GLITCH LIMPO */
 .glitch {
-  color: #00ff88;
+  position: relative;
   display: inline-block;
-  animation: glitchFlicker 3s infinite;
+  color: #00ff88;
+  font-weight: bold;
+  animation: glitchIdle 4s infinite;
 }
 
-.glitch:hover {
-  animation: glitchHover 0.3s infinite;
+/* Camadas controladas */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
 }
 
-@keyframes glitchFlicker {
+/* camada vermelha */
+.glitch::before {
+  color: red;
+  z-index: -1;
+  animation: glitchRed 2s infinite linear alternate-reverse;
+  opacity: 0.6;
+}
+
+/* camada azul */
+.glitch::after {
+  color: #00bfff;
+  z-index: -2;
+  animation: glitchBlue 2s infinite linear alternate-reverse;
+  opacity: 0.6;
+}
+
+/* movimento leve */
+@keyframes glitchRed {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, -1px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchBlue {
+  0% { transform: translate(0); }
+  20% { transform: translate(1px, -1px); }
+  40% { transform: translate(-1px, 1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+/* efeito leve constante */
+@keyframes glitchIdle {
   0% { text-shadow: none; }
-  5% { text-shadow: -1px 0 red, 1px 0 blue; }
+  5% { text-shadow: 1px 0 red, -1px 0 blue; }
   10% { text-shadow: none; }
-  15% { text-shadow: 1px 0 red, -1px 0 blue; }
-  20% { text-shadow: none; }
   100% { text-shadow: none; }
+}
+
+/* HOVER INSANO */
+.glitch:hover {
+  animation: glitchHover 0.2s infinite;
 }
 
 @keyframes glitchHover {
   0% { transform: translate(0); }
-  25% { transform: translate(-1px, 1px); }
-  50% { transform: translate(1px, -1px); }
-  75% { transform: translate(-1px, -1px); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, -2px); }
   100% { transform: translate(0); }
-}
-
-/* ========================= */
-/* VIEWS */
-.views {
-  font-size: 13px;
-  margin-top: 8px;
-  color: #888;
-}
-
-/* ========================= */
-/* VIDEO */
-.video-wrapper {
-  position: relative;
-  padding-top: 56.25%;
-}
-
-.video-wrapper iframe,
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* ========================= */
-/* FOTO VERTICAL */
-.image-wrapper {
-  display: flex;
-  justify-content: center;
-  background: black;
-  margin-top: 10px;
-}
-
-.image-wrapper img {
-  max-width: 100%;
-  height: auto;
-  max-height: 85vh;
-  object-fit: contain;
-  transition: 0.3s;
-}
-
-.image-wrapper img:hover {
-  filter: contrast(1.2) brightness(1.1);
-  box-shadow: 0 0 20px red;
-}
-
-/* ========================= */
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid red;
-  font-size: 14px;
-}
-
-/* ========================= */
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .container {
-    padding: 10px;
-  }
-
-  .card {
-    padding: 10px;
-  }
-
-  .title {
-    font-size: 16px;
-  }
-
-  .terminal {
-    font-size: 14px;
-  }
-
 }
