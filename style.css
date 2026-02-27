@@ -5,7 +5,8 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-body {
+html, body {
+  height: 100%;
   background: #000;
   color: white;
   overflow-x: hidden;
@@ -66,11 +67,12 @@ canvas#matrix {
 
 /* CONTAINER */
 .container {
-  margin-top: 100px;
-  padding: 15px;
+  margin-top: 100px; /* espaço para topbar */
+  padding: 20px 15px;
   display: flex;
-  flex-direction: column-reverse; /* mais recente em cima */
+  flex-direction: column-reverse; /* mais recente no topo */
   gap: 25px;
+  min-height: calc(100vh - 100px); /* evita espaço extra embaixo */
 }
 
 /* CARD */
@@ -159,7 +161,6 @@ canvas#matrix {
 }
 
 footer {
-  margin-top: 30px;
   padding: 15px;
   text-align: center;
   color: #00ff88;
@@ -226,35 +227,18 @@ footer {
 
 /* ===== RESPONSIVO ===== */
 @media(max-width:768px){
-  .title {
-    font-size: 16px;
-  }
-  .views {
-    font-size: 12px;
-  }
-  .topbar {
-    padding: 12px;
-  }
-  .logo {
-    font-size: 22px;
-  }
-  .card {
-    border-radius: 12px;
-  }
+  .title { font-size: 16px; }
+  .views { font-size: 12px; }
+  .topbar { padding: 12px; }
+  .logo { font-size: 22px; }
+  .card { border-radius: 12px; }
+  .container { margin-top: 90px; }
 }
 
 @media(max-width:480px){
-  .title {
-    font-size: 14px;
-  }
-  .views {
-    font-size: 11px;
-  }
-  .badge {
-    font-size: 12px;
-    padding: 5px 8px;
-  }
-  .age-box {
-    padding: 20px;
-  }
+  .title { font-size: 14px; }
+  .views { font-size: 11px; }
+  .badge { font-size: 12px; padding: 5px 8px; }
+  .age-box { padding: 20px; }
+  .container { margin-top: 80px; padding: 15px; }
 }
