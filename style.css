@@ -67,12 +67,11 @@ canvas#matrix {
 
 /* CONTAINER */
 .container {
-  margin-top: 100px; /* espaço para topbar */
+  margin-top: 100px; /* para topbar */
   padding: 20px 15px;
   display: flex;
   flex-direction: column-reverse; /* mais recente no topo */
   gap: 25px;
-  min-height: calc(100vh - 100px); /* evita espaço extra embaixo */
 }
 
 /* CARD */
@@ -165,6 +164,7 @@ footer {
   text-align: center;
   color: #00ff88;
   border-top: 1px solid #ff0000;
+  margin-top: 0;
 }
 
 /* AGE MODAL */
@@ -232,7 +232,7 @@ footer {
   .topbar { padding: 12px; }
   .logo { font-size: 22px; }
   .card { border-radius: 12px; }
-  .container { margin-top: 90px; }
+  .container { margin-top: 90px; padding: 15px; }
 }
 
 @media(max-width:480px){
@@ -240,5 +240,5 @@ footer {
   .views { font-size: 11px; }
   .badge { font-size: 12px; padding: 5px 8px; }
   .age-box { padding: 20px; }
-  .container { margin-top: 80px; padding: 15px; }
+  .container { margin-top: 80px; padding: 12px; }
 }
