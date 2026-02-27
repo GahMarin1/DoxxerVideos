@@ -6,7 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-/* BLOQUEIA SCROLL DURANTE BOOT */
 body.booting {
     overflow: hidden;
     height: 100vh;
@@ -70,7 +69,6 @@ body.booting {
     100% { transform: translate(0,0); }
 }
 
-/* BOOT */
 #bootScreen {
     position: fixed;
     inset: 0;
@@ -86,7 +84,6 @@ body.booting {
     font-size: 18px;
 }
 
-/* AGE */
 #ageModal {
     position: fixed;
     inset: 0;
