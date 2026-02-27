@@ -12,10 +12,12 @@ overflow-x:hidden;
 }
 
 /* MATRIX */
-canvas{
+canvas#matrix{
 position:fixed;
 top:0;
 left:0;
+width:100%;
+height:100%;
 z-index:-1;
 }
 
@@ -24,18 +26,19 @@ z-index:-1;
 position:fixed;
 inset:0;
 background:black;
-color:#00ff88;
 display:flex;
 justify-content:center;
 align-items:center;
 z-index:2000;
 font-family:monospace;
+color:#00ff88;
 }
 
 .terminal{
 width:90%;
 max-width:600px;
 white-space:pre-wrap;
+font-size:18px;
 }
 
 /* TOPBAR */
@@ -53,28 +56,28 @@ z-index:999;
 }
 
 .logo{
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 color:#00ff88;
-text-shadow:0 0 10px #00ff88;
+text-shadow:0 0 15px #00ff88;
 }
 
-/* CONTAINER (visual de baixo pra cima) */
+/* CONTAINER */
 .container{
-margin-top:110px;
+margin-top:120px;
 padding:30px;
 display:flex;
-flex-direction:column-reverse; /* mais recentes visualmente em cima */
+flex-direction:column-reverse;
 gap:30px;
 }
 
 /* CARD */
 .card{
-background:rgba(20,20,20,0.85);
+background:rgba(20,20,20,0.9);
 border:1px solid #00ff88;
-border-radius:15px;
+border-radius:18px;
 overflow:hidden;
-transition:0.6s;
+transition:0.5s;
 opacity:0;
 transform:translateY(40px);
 }
@@ -85,8 +88,8 @@ transform:translateY(0);
 }
 
 .card:hover{
-transform:scale(1.02);
-box-shadow:0 0 25px #00ff88;
+transform:scale(1.03);
+box-shadow:0 0 35px #00ff88;
 }
 
 .video-wrapper{
@@ -102,15 +105,17 @@ left:0;
 width:100%;
 height:100%;
 border:none;
+border-radius:10px;
 }
 
+/* BADGE +18 */
 .badge{
 position:absolute;
 background:#ff0033;
 color:white;
-padding:6px 10px;
-font-size:12px;
-border-radius:8px;
+padding:8px 12px;
+font-size:14px;
+border-radius:10px;
 margin:10px;
 animation:pulse 1.2s infinite;
 z-index:2;
@@ -135,7 +140,7 @@ color:#00ff88;
 
 .title{
 padding:15px;
-font-size:18px;
+font-size:20px;
 font-weight:bold;
 }
 
@@ -178,10 +183,13 @@ border-radius:15px;
 
 .age-box button{
 margin-top:20px;
-padding:10px 20px;
+padding:12px 25px;
 background:#00ff88;
 border:none;
 cursor:pointer;
+font-weight:bold;
+font-size:16px;
+border-radius:10px;
 }
 
 /* KONAMI BUTTONS */
