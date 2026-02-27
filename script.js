@@ -1,4 +1,5 @@
-// ===== BOOT DIGITA AUTOMÁTICO =====
+document.body.classList.add("booting");
+
 const text = "DoxxerVideos=> boot\nUsuário detectado...\nLocal: São Paulo\nSistema iniciado...\n";
 let i = 0;
 const bootText = document.getElementById("bootText");
@@ -11,8 +12,9 @@ function typeWriter() {
     } else {
         setTimeout(() => {
             document.getElementById("bootScreen").style.display = "none";
+            document.body.classList.remove("booting");
             document.getElementById("ageModal").style.display = "flex";
-        }, 1000);
+        }, 800);
     }
 }
 
@@ -22,7 +24,7 @@ function enterSite() {
     document.getElementById("ageModal").style.display = "none";
 }
 
-// ===== KONAMI MOBILE =====
+/* KONAMI MOBILE */
 let sequence = [];
 const correct = ["B","A"];
 
