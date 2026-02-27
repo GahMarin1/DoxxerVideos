@@ -1,102 +1,110 @@
-body {
-    margin: 0;
-    background: black;
-    font-family: monospace;
-    color: white;
-    overflow-x: hidden;
+body{
+margin:0;
+background:#050505;
+font-family:monospace;
+color:white;
+overflow-x:hidden;
 }
 
-body.booting {
-    overflow: hidden;
-    height: 100vh;
+/* TOPBAR */
+.topbar{
+position:sticky;
+top:0;
+padding:15px;
+background:black;
+text-align:center;
+box-shadow:0 0 25px red;
+z-index:999;
 }
 
-.container {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 25px;
-    padding: 20px;
+.logo{
+font-weight:bold;
+letter-spacing:4px;
+text-shadow:0 0 15px red;
 }
 
-.card {
-    background: rgba(15,15,15,0.95);
-    padding: 15px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 0 20px rgba(255,0,0,0.5);
-    transition: 0.3s;
+/* BOOT */
+#bootScreen{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
+overflow:hidden;
 }
 
-.video-wrapper iframe,
-.video-wrapper video,
-.video-wrapper img {
-    width: 100%;
-    border-radius: 8px;
+.boot-logo{
+font-size:24px;
+color:red;
+margin-bottom:20px;
+text-shadow:0 0 15px red;
 }
 
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: red;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 5px;
+.container{
+width:95%;
+max-width:800px;
+margin:auto;
+padding:20px;
 }
 
-.top-badge {
-    right: 10px;
-    left: auto;
-    background: linear-gradient(45deg, red, orange);
-    animation: pulse 1.5s infinite;
+.card{
+background:#0a0a0a;
+padding:20px;
+margin-bottom:25px;
+border-radius:12px;
+box-shadow:0 0 20px rgba(255,0,0,0.4);
+position:relative;
+transition:0.3s;
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 5px red; }
-    50% { box-shadow: 0 0 20px orange; }
-    100% { box-shadow: 0 0 5px red; }
+.card:hover{
+transform:translateY(-5px) scale(1.01);
+animation:shake 0.2s infinite alternate;
 }
 
-.destaque:hover {
-    animation: tremor 0.15s infinite;
+@keyframes shake{
+from{transform:translateX(-2px);}
+to{transform:translateX(2px);}
 }
 
-@keyframes tremor {
-    0% { transform: translate(0,0); }
-    25% { transform: translate(-2px,1px); }
-    50% { transform: translate(2px,-1px); }
-    75% { transform: translate(-1px,2px); }
-    100% { transform: translate(0,0); }
+.title{
+margin-top:0;
 }
 
-#bootScreen {
-    position: fixed;
-    inset: 0;
-    background: black;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.glitch{
+text-shadow:0 0 5px red;
 }
 
-.terminal {
-    color: #00ff00;
-    font-size: 18px;
+.views{
+opacity:0.7;
+font-size:14px;
 }
 
-#ageModal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9998;
+.badge{
+position:absolute;
+top:15px;
+right:15px;
+background:red;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
 }
 
-.age-box {
-    background: #111;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+.badge.viral{
+background:linear-gradient(45deg,red,orange);
+box-shadow:0 0 10px red;
+}
+
+.badge.tentativa{
+background:darkred;
+}
+
+.post-img{
+width:100%;
+border-radius:10px;
+margin-top:10px;
 }
