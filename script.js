@@ -1,45 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  const bootScreen = document.getElementById("bootScreen");
   const terminalOutput = document.getElementById("terminalOutput");
 
-  // Função para digitar texto
-  function typeText(text, speed = 40, callback = null) {
-    let i = 0;
-    const interval = setInterval(() => {
-      terminalOutput.textContent += text[i] || "";
-      i++;
-      if (i >= text.length) {
-        clearInterval(interval);
-        if (callback) callback();
-      }
-    }, speed);
+  // limpa qualquer texto inicial
+  terminalOutput.textContent = "";
+
+  function typeLine(text, speed = 35) {
+    return new Promise(resolve => {
+      let i = 0;
+      const interval = setInterval(() => {
+        terminalOutput.textContent += text[i] || "";
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          terminalOutput.textContent += "\n";
+          resolve();
+        }
+      }, speed);
+    });
   }
 
-  // Detectar localização real
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
+  async function runBoot() {
 
-      const city = data.city || "Local desconhecido";
+    await typeLine("DoxxerVideos=> boot");
+    await typeLine("Iniciando sistema...");
+    await typeLine("Detectando usuário...");
 
-      let locationMessage = `(Local: ${city})\n`;
+    let city = "Desconhecido";
 
-      if (city.toLowerCase().includes("são paulo")) {
-        locationMessage += "Bloqueado para o felca nao derrubar\n";
-      }
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      const data = await res.json();
+      city = data.city || "Desconhecido";
+    } catch (e) {
+      city = "Offline";
+    }
 
-      const bootText =
-        "DoxxerVideos=> boot\n" +
-        "Usuário detectado...\n" +
-        locationMessage;
+    await typeLine(`Local: ${city}`);
 
-      typeText(bootText);
+    if (city.toLowerCase().includes("são paulo")) {
+      await typeLine("Bloqueado para o felca nao derrubar");
+    }
 
-    })
-    .catch(() => {
-      typeText(
-        "DoxxerVideos=> boot\nUsuário detectado...\n(Local: desconhecido)\n"
-      );
-    });
+    await typeLine("Sistema carregado com sucesso.");
+    await typeLine("Inicializando interface...");
+
+    // espera 1s e fecha boot
+    setTimeout(() => {
+      bootScreen.style.opacity = "0";
+      bootScreen.style.transition = "1s";
+      setTimeout(() => {
+        bootScreen.style.display = "none";
+      }, 1000);
+    }, 1000);
+  }
+
+  runBoot();
 
 });
