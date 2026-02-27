@@ -1,10 +1,9 @@
-/* ===== BOOT TERMINAL COM DETECÇÃO DE CIDADE REAL ===== */
+/* ===== BOOT TERMINAL AUTOMÁTICO COM DETECÇÃO REAL ===== */
 
 const output = document.getElementById("terminalOutput");
 const bootScreen = document.getElementById("bootScreen");
 const ageModal = document.getElementById("ageModal");
 
-// função para simular digitação automática
 function typeCommand(command, index = 0, callback) {
     if (index < command.length) {
         output.innerHTML += command.charAt(index);
@@ -14,30 +13,18 @@ function typeCommand(command, index = 0, callback) {
     }
 }
 
-// função de fake boot (continua mesmo depois de detectar)
 function continueBootSequence(location) {
     output.innerHTML += `\nUsuário detectado`;
     output.innerHTML += `\n(Local: ${location})`;
 
-    // se for São Paulo → bloqueia
     if (location.toLowerCase().includes("são paulo") || location.toLowerCase().includes("sao paulo")) {
         setTimeout(() => {
             output.innerHTML += "\nBloqueado para o felca não derrubar";
         }, 800);
     } else {
-        // prossegue com fake boot
-        setTimeout(() => {
-            output.innerHTML += "\nIniciando sistema...";
-        }, 800);
-
-        setTimeout(() => {
-            output.innerHTML += "\nCarregando módulos...";
-        }, 1600);
-
-        setTimeout(() => {
-            output.innerHTML += "\nConectando rede segura...";
-        }, 2400);
-
+        setTimeout(() => { output.innerHTML += "\nIniciando sistema..."; }, 800);
+        setTimeout(() => { output.innerHTML += "\nCarregando módulos..."; }, 1600);
+        setTimeout(() => { output.innerHTML += "\nConectando rede segura..."; }, 2400);
         setTimeout(() => {
             output.innerHTML += "\nSistema iniciado.";
             setTimeout(() => {
@@ -48,12 +35,11 @@ function continueBootSequence(location) {
     }
 }
 
-// auto-boot (digita boot sozinho)
+// auto-boot
 function autoBoot() {
     const command = "boot";
     output.innerHTML += " ";
     typeCommand(command, 0, () => {
-        // depois de digitar “boot”, chama a API de localização real
         fetch("https://ip-api.com/json/?fields=status,country,regionName,city")
             .then(res => res.json())
             .then(data => {
@@ -70,17 +56,15 @@ function autoBoot() {
     });
 }
 
-// inicia o auto-boot automaticamente após carregar
 window.addEventListener("load", () => {
     setTimeout(autoBoot, 500);
 });
 
-// função para entrar no site após verificação +18
 function enterSite() {
     ageModal.style.display = "none";
 }
 
-/* ===== FADE DOS CARDS ===== */
+/* Fade reveal dos cards */
 const cards = document.querySelectorAll(".card");
 function reveal() {
     cards.forEach(card => {
@@ -92,7 +76,7 @@ function reveal() {
 window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
-/* ===== MATRIX RAIN ===== */
+/* MATRIX RAIN */
 const canvas = document.createElement("canvas");
 document.body.appendChild(canvas);
 const ctx = canvas.getContext("2d");
