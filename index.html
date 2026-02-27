@@ -8,13 +8,31 @@
 </head>
 <body>
 
+<canvas id="matrix"></canvas>
+
+<!-- BOOT SCREEN -->
+<div id="bootScreen">
+    <div class="terminal">
+        <p id="bootText"></p>
+    </div>
+</div>
+
+<!-- AGE VERIFY -->
+<div id="ageModal">
+    <div class="age-box">
+        <h2>🔞 CONTEÚDO ADULTO</h2>
+        <p>Confirme que você tem 18+</p>
+        <button onclick="enterSite()">Entrar</button>
+    </div>
+</div>
+
 <header class="topbar">
-    <div class="logo">DOXXERVIDEOS</div>
+    <div class="logo glitch">DOXXERVIDEOS</div>
 </header>
 
 <main class="container">
 
-    <!-- VÍDEO 1 - Freddy -->
+    <!-- VÍDEO MAIS ANTIGO (FREDDY) -->
     <div class="card video-card">
         <div class="badge">+18</div>
         <div class="video-wrapper">
@@ -24,7 +42,7 @@
         <p class="views">👁 67.337 visualizações • 26/02/2026</p>
     </div>
 
-    <!-- VÍDEO 2 - Femboy -->
+    <!-- FEMBOY ROOMATE -->
     <div class="card video-card">
         <div class="badge">+18</div>
         <div class="video-wrapper">
@@ -39,28 +57,31 @@
     <!-- POST ESCLARECIMENTO -->
     <div class="card post">
         <h2 class="title glitch">📌 ESCLARECIMENTO</h2>
-        <p>Esse site foi criado para postar vídeos que não iriam para o YouTube.  
-        Não tem nada relacionado a outros sites externos.</p>
+        <p>Esse site não tem nada relacionado ao PornHub ou outros sites externos.</p>
         <p class="views">26/02/2026</p>
     </div>
 
-    <!-- POST EASTER EGG -->
+    <!-- POST REWORK -->
     <div class="card post">
-        <h2 class="title glitch">📢 NOVO EASTER EGG!</h2>
-        <p>Adicionei um easter egg no site 👀 descubram!</p>
-        <p class="views">26/02/2026</p>
+        <h2 class="title glitch">📢 SITE REWORKS!</h2>
+        <p>Esse site já teve uns 27 reworks em só 2 dias 😅</p>
+        <p class="views">27/02/2026</p>
     </div>
 
-    <!-- POST MUSICAL -->
-    <div class="card video-card">
+    <!-- LARICA MAIS VISTO -->
+    <div class="card video-card destaque">
+        <div class="badge">+18</div>
+        <div class="badge top-badge">🔥 MAIS VISTO</div>
+
         <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/1lSCyVaKSbwKZVX_evCjXT2_iPcoQEaMZ/preview" allowfullscreen></iframe>
+            <img src="https://i.imgur.com/4FpRdZp.jpeg">
         </div>
-        <h2 class="title glitch">Será que devo postar músicas aqui?</h2>
-        <p class="views">26/02/2026</p>
+
+        <h2 class="title glitch">Chegou a hora do adm bate a larica 🍔🔥</h2>
+        <p class="views">👁 1.000.000.000 visualizações • 27/02/2026</p>
     </div>
 
-    <!-- VÍDEO 3 - Smillers -->
+    <!-- SMILLERS -->
     <div class="card video-card">
         <div class="badge">+18</div>
         <div class="video-wrapper">
@@ -70,23 +91,13 @@
         <p class="views">👁 67.067 visualizações • 27/02/2026</p>
     </div>
 
-    <!-- POST REWORKS -->
-    <div class="card post">
-        <h2 class="title glitch">📢 27 REWORKS!</h2>
-        <p>Esse site já teve uns 27 reworks em só 2 dias 💀🔥</p>
-        <p class="views">27/02/2026</p>
-    </div>
-
-    <!-- POST LARICA -->
-    <div class="card post">
-        <h2 class="title glitch">🍔 CHEGOU A HORA DO ADM BATE A LARICA</h2>
-        <img src="https://i.imgur.com/4FpRdZp.jpeg" class="post-img">
-        <p class="views">27/02/2026</p>
-    </div>
-
 </main>
 
-<footer>© 2026 DoxxerVideos</footer>
+<div id="konamiButtons">
+    <button id="btnB">B</button>
+    <button id="btnA">A</button>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
