@@ -1,21 +1,17 @@
-// AGE VERIFICATION
-function enterSite() {
-    document.getElementById("ageModal").style.display = "none";
+function enterSite(){
+document.getElementById("ageModal").style.display="none";
 }
 
-// FADE AO ROLAR
-function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
+/* Fade Reveal */
+const cards = document.querySelectorAll(".card");
 
-    reveals.forEach((element) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const revealPoint = 100;
-
-        if (elementTop < windowHeight - revealPoint) {
-            element.classList.add("active");
-        }
-    });
+function revealOnScroll(){
+cards.forEach(card=>{
+const top = card.getBoundingClientRect().top;
+if(top < window.innerHeight - 50){
+card.classList.add("show");
+}
+});
 }
 
 window.addEventListener("scroll", revealOnScroll);
