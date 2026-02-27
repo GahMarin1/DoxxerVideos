@@ -1,25 +1,21 @@
-document.body.classList.add("booting");
-
-const text = "DoxxerVideos=> boot\nUsuário detectado...\nLocal: São Paulo\nSistema iniciado...\nFirewall ativo...\n";
+// BOOT EFFECT
+const text = "Iniciando sistema...\nConectando servidor...\nBypass firewall...\nAcesso liberado.";
 let i = 0;
+const speed = 40;
 const bootText = document.getElementById("bootText");
 
-function typeWriter() {
-    if (i < text.length) {
-        bootText.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 40);
-    } else {
-        setTimeout(() => {
-            document.getElementById("bootScreen").style.display = "none";
-            document.body.classList.remove("booting");
-            document.getElementById("ageModal").style.display = "flex";
-        }, 800);
-    }
+function typeWriter(){
+if(i < text.length){
+bootText.innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter, speed);
+}else{
+setTimeout(()=>{
+document.getElementById("bootScreen").style.display="none";
+document.body.style.overflow="auto";
+},800);
+}
 }
 
+document.body.style.overflow="hidden";
 typeWriter();
-
-function enterSite() {
-    document.getElementById("ageModal").style.display = "none";
-}
