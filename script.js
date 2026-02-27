@@ -1,6 +1,6 @@
 document.body.classList.add("booting");
 
-const text = "DoxxerVideos=> boot\nUsuário detectado...\nLocal: São Paulo\nSistema iniciado...\n";
+const text = "DoxxerVideos=> boot\nUsuário detectado...\nLocal: São Paulo\nSistema iniciado...\nFirewall ativo...\n";
 let i = 0;
 const bootText = document.getElementById("bootText");
 
@@ -22,19 +22,4 @@ typeWriter();
 
 function enterSite() {
     document.getElementById("ageModal").style.display = "none";
-}
-
-/* KONAMI MOBILE */
-let sequence = [];
-const correct = ["B","A"];
-
-document.getElementById("btnB").onclick = () => check("B");
-document.getElementById("btnA").onclick = () => check("A");
-
-function check(letter) {
-    sequence.push(letter);
-    if (sequence.join("") === correct.join("")) {
-        alert("EASTER EGG ATIVADO 😈");
-        sequence = [];
-    }
 }
