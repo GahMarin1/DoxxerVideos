@@ -1,9 +1,19 @@
-const titles = document.querySelectorAll(".videoTitle");
+// Fade ao rolar
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
 
-setInterval(() => {
-    titles.forEach(title => {
-        title.style.opacity = (title.style.opacity == "0.5") ? "1" : "0.5";
+    reveals.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            element.classList.add("active");
+        }
     });
-}, 800);
+}
 
-console.log("%c[DoxxerVideos] Sistema Online", "color: #00ff00; font-size: 16px;");
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+console.log("%c[DoxxerVideos] Sistema Online", "color: #00ff88; font-size: 16px;");
