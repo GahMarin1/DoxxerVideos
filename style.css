@@ -5,10 +5,10 @@ padding:0;
 box-sizing:border-box;
 }
 
-html, body{
+html,body{
 width:100%;
 max-width:100%;
-overflow-x:hidden; /* REMOVE O ESPAÇO LATERAL */
+overflow-x:hidden;
 background:#050505;
 font-family:monospace;
 color:white;
@@ -18,12 +18,11 @@ color:white;
 .topbar{
 position:sticky;
 top:0;
-width:100%;
 padding:18px 0;
 background:#000;
 text-align:center;
-z-index:999;
 box-shadow:0 0 25px rgba(255,0,0,0.4);
+z-index:999;
 }
 
 .logo{
@@ -49,10 +48,8 @@ margin-bottom:25px;
 border-radius:16px;
 position:relative;
 transition:0.25s;
-
-/* GLOW CONTROLADO (não estoura tela) */
 box-shadow:
-inset 0 0 25px rgba(255,0,0,0.25),
+inset 0 0 25px rgba(255,0,0,0.2),
 0 0 20px rgba(255,0,0,0.25);
 }
 
@@ -60,7 +57,7 @@ inset 0 0 25px rgba(255,0,0,0.25),
 transform:translateY(-4px);
 }
 
-/* ===== TÍTULO ===== */
+/* ===== TITLES ===== */
 .title{
 margin:10px 0;
 font-size:18px;
@@ -90,63 +87,55 @@ border-radius:20px;
 font-size:11px;
 font-weight:bold;
 color:white;
+background:red;
 }
 
 .badge.viral{
 background:linear-gradient(45deg,#ff0000,#ff6600);
-box-shadow:0 0 10px #ff3300;
-}
-
-.badge.tentativa{
-background:#8b0000;
+box-shadow:0 0 12px #ff3300;
 }
 
 .badge.em-breve{
+background:#8b0000;
+}
+
+/* ===== MEDIA ===== */
+iframe, video{
+width:100%;
+border-radius:14px;
+margin-top:10px;
+}
+
+/* ===== LIKE/DISLIKE ===== */
+.actions{
+display:flex;
+gap:15px;
+margin-top:12px;
+}
+
+.actions button{
+background:#111;
+border:1px solid #222;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+cursor:pointer;
+transition:0.2s;
+font-size:14px;
+}
+
+.actions button:hover{
 background:red;
 }
 
-/* ===== IMAGEM ===== */
-.post-img{
-width:100%;
-display:block;
-border-radius:14px;
-margin-top:10px;
+.actions button.clicked{
+transform:scale(1.2);
+background:red;
 }
 
-/* ===== VÍDEO RESPONSIVO ===== */
-.video-card iframe,
-.video-card video{
-width:100%;
-border-radius:14px;
-margin-top:10px;
+/* ===== RESPONSIVO EXTRA ===== */
+@media(max-width:500px){
+.title{
+font-size:16px;
 }
-
-/* ===== BOOT SCREEN ===== */
-#bootScreen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-z-index:9999;
-overflow:hidden; /* NÃO DEIXA ROLAR */
-}
-
-.boot-logo{
-font-size:22px;
-color:red;
-margin-bottom:20px;
-text-shadow:0 0 15px red;
-}
-
-#bootText{
-white-space:pre-line;
-color:#ff2a2a;
-text-align:center;
-padding:0 20px;
 }
