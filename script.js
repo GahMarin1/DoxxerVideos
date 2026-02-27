@@ -1,77 +1,53 @@
-document.addEventListener("DOMContentLoaded", () => {
+// BOOT DIGITANDO
+const text = "DoxxerVideos=> boot";
+const bootText = document.getElementById("bootText");
+let i = 0;
 
-  /* MATRIX */
-  const canvas = document.getElementById("matrix");
-  const ctx = canvas.getContext("2d");
-
-  canvas.height = window.innerHeight;
-  canvas.width = window.innerWidth;
-
-  const letters = "01DOXXER";
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = [];
-
-  for(let x = 0; x < columns; x++)
-    drops[x] = 1;
-
-  function draw(){
-    ctx.fillStyle = "rgba(0,0,0,0.05)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle = "#00ff88";
-    ctx.font = fontSize + "px monospace";
-
-    for(let i=0;i<drops.length;i++){
-      const text = letters[Math.floor(Math.random()*letters.length)];
-      ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-      if(drops[i]*fontSize > canvas.height && Math.random()>0.975)
-        drops[i]=0;
-
-      drops[i]++;
-    }
+function typeEffect() {
+  if (i < text.length) {
+    bootText.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 50);
+  } else {
+    setTimeout(() => {
+      document.getElementById("bootScreen").style.display = "none";
+    }, 800);
   }
+}
 
-  setInterval(draw,33);
+typeEffect();
 
-  /* BOOT DIGITAÇÃO */
-  const boot = document.getElementById("bootScreen");
-  const terminal = document.getElementById("terminalOutput");
+// MATRIX
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
 
-  const lines = [
-    "DoxxerVideos=> boot",
-    "Iniciando sistema...",
-    "Carregando módulos...",
-    "Sistema online."
-  ];
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
-  let current = 0;
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
 
-  function typeLine(){
-    if(current >= lines.length){
-      setTimeout(()=>{
-        boot.classList.add("hidden");
-      },600);
-      return;
-    }
+const drops = [];
+for (let x = 0; x < columns; x++)
+  drops[x] = 1;
 
-    let text = lines[current];
-    let i=0;
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const interval = setInterval(()=>{
-      terminal.innerHTML = text.substring(0,i) + '<span class="cursor">|</span>';
-      i++;
+  ctx.fillStyle = "#0f0";
+  ctx.font = fontSize + "px monospace";
 
-      if(i>text.length){
-        clearInterval(interval);
-        terminal.innerHTML = text + "\n";
-        current++;
-        setTimeout(typeLine,200);
-      }
-    },30);
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
   }
+}
 
-  typeLine();
-
-});
+setInterval(draw, 35);
