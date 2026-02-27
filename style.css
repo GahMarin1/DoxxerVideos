@@ -67,7 +67,7 @@ text-shadow:0 0 15px #00ff88;
 margin-top:120px;
 padding:30px;
 display:flex;
-flex-direction:column-reverse;
+flex-direction:column-reverse; /* visual de mais recente no topo */
 gap:30px;
 }
 
