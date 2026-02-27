@@ -47,6 +47,18 @@ html,body{
   white-space:pre-wrap;
 }
 
+/* Cursor */
+.cursor{
+  display:inline-block;
+  width:10px;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0;}
+}
+
 /* TOPBAR */
 .topbar{
   position:fixed;
@@ -65,7 +77,6 @@ html,body{
   text-shadow:0 0 10px #00ff88,0 0 20px red;
 }
 
-/* CONTAINER */
 .container{
   margin-top:100px;
   padding:20px;
@@ -74,7 +85,6 @@ html,body{
   gap:25px;
 }
 
-/* CARD */
 .card{
   background:rgba(20,20,20,0.95);
   border:1px solid red;
@@ -86,7 +96,6 @@ html,body{
 
 .card:hover{
   transform:scale(1.03);
-  box-shadow:0 0 30px #00ff88,0 0 40px red;
 }
 
 .video-wrapper{
@@ -140,16 +149,4 @@ footer{
   text-align:center;
   padding:20px;
   border-top:1px solid red;
-  margin-top:0;
-}
-
-/* RESPONSIVO */
-@media(max-width:768px){
-  .container{padding:15px;margin-top:90px;}
-  .logo{font-size:20px;}
-}
-
-@media(max-width:480px){
-  .container{padding:12px;margin-top:80px;}
-  .title{font-size:15px;}
 }
