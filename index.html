@@ -8,22 +8,13 @@
 </head>
 <body>
 
-<!-- MATRIX CANVAS -->
+<!-- MATRIX BACKGROUND -->
 <canvas id="matrix"></canvas>
 
 <!-- BOOT SCREEN -->
 <div id="bootScreen">
   <div class="terminal">
-    <div id="terminalOutput">DoxxerVideos=></div>
-  </div>
-</div>
-
-<!-- AGE VERIFY -->
-<div id="ageModal">
-  <div class="age-box">
-    <h2>🔞 CONTEÚDO ADULTO</h2>
-    <p>Confirme que você tem 18+</p>
-    <button onclick="enterSite()">Entrar</button>
+    <div id="terminalOutput"></div>
   </div>
 </div>
 
@@ -33,45 +24,7 @@
 
 <main class="container">
 
-  <!-- MAIS RECENTES NO TOPO -->
-  <div class="card video-card">
-    <div class="badge">+18</div>
-    <div class="video-wrapper">
-      <iframe src="https://drive.google.com/file/d/19A1YOcdCFWR6QNVV0hUv7IM69GYQzrj_/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <h2 class="title glitch">Jogando Smillers Den Deluxxx até morrer</h2>
-    <p class="views">👁 67.067 visualizações • 27/02/2026</p>
-  </div>
-
-  <div class="card post">
-    <h2 class="title glitch">📢 NOVO VÍDEO CHEGANDO!</h2>
-    <p>Rapaziada, vou postar vídeo hoje, fiquem ligados!</p>
-    <p class="views">27/02/2026</p>
-  </div>
-
-  <div class="card post">
-    <h2 class="title glitch">📢 NOVO EASTER EGG!</h2>
-    <p>Adicionei um easter egg no site, descubram e vão no canal do <strong>SpherexMC</strong> e comentem no vídeo mais recente "eu achei".</p>
-    <p class="views">26/02/2026</p>
-  </div>
-
-  <div class="card post">
-    <h2 class="title glitch">📌 ESCLARECIMENTO</h2>
-    <p>Rapaziada, esse site eu criei para postar vídeos que ninguém conseguiria postar no YouTube.  
-    Esse site não tem nada relacionado ao PornHub ou outros sites externos.</p>
-    <p class="views">26/02/2026</p>
-  </div>
-
-  <div class="card video-card">
-    <div class="badge">+18</div>
-    <div class="video-wrapper">
-      <video autoplay muted loop playsinline controls>
-        <source src="https://mp4-cdn77.xvideos-cdn.com/6578ba04-f6a6-4df1-a919-df7cd7bb8149/0/video_240p.mp4?secure=zc0ifmhk4wr_Nwy2wOmK_A==,1772165216" type="video/mp4">
-      </video>
-    </div>
-    <h2 class="title glitch">MY FEMBOY ROOMATE - A FESTA</h2>
-    <p class="views">👁 100.872 visualizações • 26/02/2026</p>
-  </div>
+  <!-- MAIS ANTIGO (fica embaixo por causa do column-reverse) -->
 
   <div class="card video-card">
     <div class="badge">+18</div>
@@ -79,19 +32,34 @@
       <iframe src="https://player.vimeo.com/video/1168637536" allowfullscreen></iframe>
     </div>
     <h2 class="title glitch">JOGANDO FREDDY FAZBOOBS ATE MORRER + EXTRAS</h2>
-    <p class="views">👁 67.337 visualizações • 26/02/2026</p>
+    <p class="views">👁 67.337 • 26/02/2026</p>
   </div>
 
   <div class="card video-card">
+    <div class="badge">+18</div>
     <div class="video-wrapper">
-      <iframe src="https://drive.google.com/file/d/1lSCyVaKSbwKZVX_evCjXT2_iPcoQEaMZ/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <video controls>
+        <source src="https://mp4-cdn77.xvideos-cdn.com/6578ba04-f6a6-4df1-a919-df7cd7bb8149/0/video_240p.mp4?secure=zc0ifmhk4wr_Nwy2wOmK_A==,1772165216" type="video/mp4">
+      </video>
     </div>
-    <h2 class="title glitch">Será que devo postar músicas aqui?</h2>
+    <h2 class="title glitch">MY FEMBOY ROOMATE - A FESTA</h2>
+    <p class="views">👁 100.872 • 26/02/2026</p>
+  </div>
+
+  <div class="card post">
+    <h2 class="title glitch">📌 ESCLARECIMENTO</h2>
+    <p>Esse site não tem nada relacionado ao PornHub ou outros sites externos.</p>
     <p class="views">26/02/2026</p>
   </div>
 
   <div class="card post">
-    <h2 class="title glitch">📡 PLANEJAMENTO</h2>
+    <h2 class="title glitch">📢 NOVO VÍDEO CHEGANDO!</h2>
+    <p>Rapaziada, vou postar vídeo hoje fiquem ligados.</p>
+    <p class="views">27/02/2026</p>
+  </div>
+
+  <div class="card post">
+    <h2 class="title glitch">🚀 STREAM EM BREVE</h2>
     <p>Irei tentar implementar uma função de stream nesse site para streamar.</p>
     <p class="views">27/02/2026</p>
   </div>
@@ -99,12 +67,6 @@
 </main>
 
 <footer>© 2026 DoxxerVideos</footer>
-
-<!-- KONAMI BUTTONS -->
-<div id="konamiButtons" class="hidden">
-  <button id="btnB">B</button>
-  <button id="btnA">A</button>
-</div>
 
 <script src="script.js"></script>
 </body>
