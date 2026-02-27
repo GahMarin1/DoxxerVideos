@@ -1,79 +1,140 @@
-/* ========================= */
-/* GLITCH PRO (FORTE E LIMPO) */
-/* ========================= */
+*{margin:0;padding:0;box-sizing:border-box}
 
-.glitch {
-  position: relative;
-  display: inline-block;
-  color: #00ff88;
-  font-weight: bold;
-  animation: glitchIdle 4s infinite;
+body{
+background:#000;
+color:#00ff88;
+font-family:Courier New,monospace;
+overflow-x:hidden;
 }
 
-/* Camadas controladas */
+#matrix{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle at center,rgba(255,0,0,.08),transparent 70%);
+animation:plasma 6s infinite alternate;
+z-index:-1;
+}
+
+@keyframes plasma{
+0%{opacity:.3;transform:scale(1)}
+100%{opacity:.6;transform:scale(1.2)}
+}
+
+#bootScreen{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.cursor{animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
+
+.topbar{
+text-align:center;
+padding:20px;
+border-bottom:2px solid red;
+text-shadow:0 0 10px red;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:rgba(0,0,0,.85);
+border:1px solid red;
+margin-bottom:25px;
+padding:15px;
+transition:.3s;
+}
+
+.card:hover{
+box-shadow:0 0 20px red;
+transform:translateY(-3px);
+}
+
+.title{margin-top:10px}
+
+.views{font-size:13px;color:#aaa;margin-top:6px}
+
+.video-wrapper{
+position:relative;
+padding-top:56.25%;
+}
+
+.video-wrapper iframe,
+.video-wrapper video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+.image-wrapper{
+display:flex;
+justify-content:center;
+margin-top:10px;
+}
+
+.image-wrapper img{
+max-width:100%;
+height:auto;
+max-height:85vh;
+object-fit:contain;
+}
+
+/* GLITCH RGB DISTORÇÃO */
+.glitch{
+position:relative;
+display:inline-block;
+color:#00ff88;
+}
+
 .glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
-  pointer-events: none;
+.glitch::after{
+content:attr(data-text);
+position:absolute;
+left:0;
+top:0;
+width:100%;
+overflow:hidden;
 }
 
-/* camada vermelha */
-.glitch::before {
-  color: red;
-  z-index: -1;
-  animation: glitchRed 2s infinite linear alternate-reverse;
-  opacity: 0.6;
+.glitch::before{
+color:red;
+transform:translate(2px,0);
+z-index:-1;
 }
 
-/* camada azul */
-.glitch::after {
-  color: #00bfff;
-  z-index: -2;
-  animation: glitchBlue 2s infinite linear alternate-reverse;
-  opacity: 0.6;
+.glitch::after{
+color:#00bfff;
+transform:translate(-2px,0);
+z-index:-2;
 }
 
-/* movimento leve */
-@keyframes glitchRed {
-  0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
-  100% { transform: translate(0); }
+footer{
+text-align:center;
+padding:20px;
+border-top:1px solid red;
 }
 
-@keyframes glitchBlue {
-  0% { transform: translate(0); }
-  20% { transform: translate(1px, -1px); }
-  40% { transform: translate(-1px, 1px); }
-  60% { transform: translate(1px, 1px); }
-  80% { transform: translate(-1px, -1px); }
-  100% { transform: translate(0); }
-}
-
-/* efeito leve constante */
-@keyframes glitchIdle {
-  0% { text-shadow: none; }
-  5% { text-shadow: 1px 0 red, -1px 0 blue; }
-  10% { text-shadow: none; }
-  100% { text-shadow: none; }
-}
-
-/* HOVER INSANO */
-.glitch:hover {
-  animation: glitchHover 0.2s infinite;
-}
-
-@keyframes glitchHover {
-  0% { transform: translate(0); }
-  25% { transform: translate(-2px, 2px); }
-  50% { transform: translate(2px, -2px); }
-  75% { transform: translate(-2px, -2px); }
-  100% { transform: translate(0); }
+@media(max-width:768px){
+.container{padding:10px}
 }
