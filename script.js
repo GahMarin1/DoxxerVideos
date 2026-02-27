@@ -1,21 +1,35 @@
-// BOOT EFFECT
-const text = "Iniciando sistema...\nConectando servidor...\nBypass firewall...\nAcesso liberado.";
-let i = 0;
-const speed = 40;
-const bootText = document.getElementById("bootText");
+document.querySelectorAll(".card").forEach(card => {
 
-function typeWriter(){
-if(i < text.length){
-bootText.innerHTML += text.charAt(i);
-i++;
-setTimeout(typeWriter, speed);
-}else{
-setTimeout(()=>{
-document.getElementById("bootScreen").style.display="none";
-document.body.style.overflow="auto";
-},800);
-}
-}
+const id = card.dataset.id;
+if(!id) return;
 
-document.body.style.overflow="hidden";
-typeWriter();
+const likeBtn = card.querySelector(".like");
+const dislikeBtn = card.querySelector(".dislike");
+
+let likes = parseInt(localStorage.getItem(id+"_like")) || 0;
+let dislikes = parseInt(localStorage.getItem(id+"_dislike")) || 0;
+
+likeBtn.querySelector("span").innerText = likes;
+dislikeBtn.querySelector("span").innerText = dislikes;
+
+/* LIKE */
+likeBtn.addEventListener("click", () => {
+    likes++;
+    localStorage.setItem(id+"_like", likes);
+    likeBtn.querySelector("span").innerText = likes;
+
+    likeBtn.classList.add("clicked");
+    setTimeout(()=>likeBtn.classList.remove("clicked"),200);
+});
+
+/* DISLIKE (PODE NEGATIVO) */
+dislikeBtn.addEventListener("click", () => {
+    dislikes--;
+    localStorage.setItem(id+"_dislike", dislikes);
+    dislikeBtn.querySelector("span").innerText = dislikes;
+
+    dislikeBtn.classList.add("clicked");
+    setTimeout(()=>dislikeBtn.classList.remove("clicked"),200);
+});
+
+});
