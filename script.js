@@ -1,49 +1,38 @@
-/* BOOT */
-const text = "Inicializando sistema...\nAcesso autorizado.\nCarregando DoxxerVideos...\n";
-const bootText = document.getElementById("bootText");
-const bootScreen = document.getElementById("bootScreen");
-
+// ===== BOOT DIGITA AUTOMÁTICO =====
+const text = "DoxxerVideos=> boot\nUsuário detectado...\nLocal: São Paulo\nSistema iniciado...\n";
 let i = 0;
-function typeBoot(){
- if(i < text.length){
-   bootText.innerHTML += text.charAt(i);
-   i++;
-   setTimeout(typeBoot, 30);
- } else {
-   setTimeout(()=>bootScreen.style.display="none",800);
- }
-}
-typeBoot();
+const bootText = document.getElementById("bootText");
 
-/* MATRIX */
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-
-const letters = "アカサタナハマヤラワ0123456789";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for(let x=0;x<columns;x++) drops[x]=1;
-
-function draw(){
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
-ctx.fillStyle="#00ff88";
-ctx.font=fontSize+"px monospace";
-
-for(let i=0;i<drops.length;i++){
-const text=letters.charAt(Math.floor(Math.random()*letters.length));
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)
-drops[i]=0;
-
-drops[i]++;
-}
+function typeWriter() {
+    if (i < text.length) {
+        bootText.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    } else {
+        setTimeout(() => {
+            document.getElementById("bootScreen").style.display = "none";
+            document.getElementById("ageModal").style.display = "flex";
+        }, 1000);
+    }
 }
 
-setInterval(draw,33);
+typeWriter();
+
+function enterSite() {
+    document.getElementById("ageModal").style.display = "none";
+}
+
+// ===== KONAMI MOBILE =====
+let sequence = [];
+const correct = ["B","A"];
+
+document.getElementById("btnB").onclick = () => check("B");
+document.getElementById("btnA").onclick = () => check("A");
+
+function check(letter) {
+    sequence.push(letter);
+    if (sequence.join("") === correct.join("")) {
+        alert("EASTER EGG ATIVADO 😈");
+        sequence = [];
+    }
+}
