@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===== MATRIX ===== */
+  /* MATRIX */
   const canvas = document.getElementById("matrix");
   const ctx = canvas.getContext("2d");
 
@@ -35,8 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(draw,33);
 
-  /* ===== BOOT ===== */
-
+  /* BOOT DIGITAÇÃO */
   const boot = document.getElementById("bootScreen");
   const terminal = document.getElementById("terminalOutput");
 
@@ -61,37 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let i=0;
 
     const interval = setInterval(()=>{
-      terminal.textContent += text[i] || "";
+      terminal.innerHTML = text.substring(0,i) + '<span class="cursor">|</span>';
       i++;
-      if(i>=text.length){
+
+      if(i>text.length){
         clearInterval(interval);
-        terminal.textContent += "\n";
+        terminal.innerHTML = text + "\n";
         current++;
         setTimeout(typeLine,200);
       }
     },30);
-  }
-
-  typeLine();
-
-});      setTimeout(safeCloseBoot, 600);
-      return;
-    }
-
-    let text = lines[lineIndex];
-    let i = 0;
-
-    const interval = setInterval(() => {
-      terminalOutput.textContent += text[i] || "";
-      i++;
-
-      if (i >= text.length) {
-        clearInterval(interval);
-        terminalOutput.textContent += "\n";
-        lineIndex++;
-        setTimeout(typeLine, 200);
-      }
-    }, 25);
   }
 
   typeLine();
