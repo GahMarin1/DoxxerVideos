@@ -59,12 +59,12 @@ color:#00ff88;
 text-shadow:0 0 10px #00ff88;
 }
 
-/* CONTAINER */
+/* CONTAINER (visual de baixo pra cima) */
 .container{
 margin-top:110px;
 padding:30px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+display:flex;
+flex-direction:column-reverse; /* mais recentes visualmente em cima */
 gap:30px;
 }
 
