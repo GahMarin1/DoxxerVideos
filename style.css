@@ -1,152 +1,154 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Segoe UI, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body{
-  background:black;
-  color:white;
-  overflow-x:hidden;
+body {
+  background: black;
+  color: #00ff88;
+  font-family: monospace;
+  overflow-x: hidden;
 }
 
-/* MATRIX */
-#matrix{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
 
-/* BOOT */
-#bootScreen{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  font-family:monospace;
-  color:#00ff88;
-  transition:opacity 1s ease;
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,0,0,0.15), transparent 70%);
+  animation: pulse 3s infinite alternate;
+  z-index: -1;
 }
 
-#bootScreen.hidden{
-  opacity:0;
-  pointer-events:none;
+@keyframes pulse {
+  from { opacity: 0.4; }
+  to { opacity: 0.8; }
 }
 
-.terminal{
-  width:90%;
-  max-width:600px;
-  font-size:18px;
-  white-space:pre-wrap;
+.topbar {
+  padding: 15px;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 1px solid red;
 }
 
-/* Cursor */
-.cursor{
-  display:inline-block;
-  width:10px;
-  animation:blink 1s infinite;
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
 
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0;}
-}
-
-/* TOPBAR */
-.topbar{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:15px;
-  background:rgba(0,0,0,0.9);
-  border-bottom:2px solid red;
-  text-align:center;
-  z-index:1000;
-}
-
-.logo{
-  font-size:24px;
-  color:#00ff88;
-  text-shadow:0 0 10px #00ff88,0 0 20px red;
-}
-
-.container{
-  margin-top:100px;
-  padding:20px;
-  display:flex;
-  flex-direction:column-reverse;
-  gap:25px;
-}
-
-.card{
-  background:rgba(20,20,20,0.95);
-  border:1px solid red;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 0 15px #00ff88,0 0 25px red;
-  transition:0.4s;
-}
-
-.card:hover{
-  transform:scale(1.03);
-}
-
-.video-wrapper{
-  position:relative;
-  padding-top:56.25%;
+.card {
+  background: rgba(0,0,0,0.8);
+  border: 1px solid red;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,0,0,0.3);
 }
 
 .video-wrapper iframe,
-.video-wrapper video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  border:none;
+.video-wrapper video {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
 }
 
-.badge{
-  position:absolute;
-  background:red;
-  padding:6px 10px;
-  margin:10px;
-  font-size:13px;
-  border-radius:8px;
-  animation:pulse 1s infinite;
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 5px red;}
-  50%{box-shadow:0 0 20px red;}
-  100%{box-shadow:0 0 5px red;}
+.image-wrapper img:hover {
+  transform: scale(1.03);
+  filter: hue-rotate(90deg) contrast(120%);
 }
 
-.title{
-  padding:12px;
-  font-weight:bold;
-  color:#00ff88;
+footer {
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid red;
 }
 
-.views{
-  padding:0 12px 12px;
-  font-size:13px;
-  color:#aaa;
+.views {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.7;
 }
 
-.post{
-  padding:15px;
+/* GLITCH */
+.glitch {
+  position: relative;
+  color: #00ff88;
 }
 
-footer{
-  text-align:center;
-  padding:20px;
-  border-top:1px solid red;
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: red;
+  animation: glitch1 1s infinite;
+}
+
+.glitch::after {
+  color: blue;
+  animation: glitch2 1s infinite;
+}
+
+@keyframes glitch1 {
+  0% { transform: translate(2px,-2px); }
+  50% { transform: translate(-2px,2px); }
+  100% { transform: translate(2px,-2px); }
+}
+
+@keyframes glitch2 {
+  0% { transform: translate(-2px,2px); }
+  50% { transform: translate(2px,-2px); }
+  100% { transform: translate(-2px,2px); }
+}
+
+/* BOOT */
+#bootScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.terminal {
+  font-size: 22px;
+  color: #00ff88;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .video-wrapper iframe {
+    height: 200px;
+  }
 }
