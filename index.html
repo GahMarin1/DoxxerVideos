@@ -1,47 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DoxxerVideos</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- BOOT TERMINAL -->
-<div id="bootScreen">
-    <canvas id="matrix"></canvas>
-    <div class="terminal">
-        <div id="terminalOutput"></div>
-    </div>
-</div>
-
-<!-- AGE VERIFY -->
-<div id="ageModal">
-    <div class="age-box">
-        <h2>🔞 CONTEÚDO ADULTO</h2>
-        <p>Confirme que você tem 18+</p>
-        <button onclick="enterSite()">Entrar</button>
-    </div>
-</div>
-
-<header class="topbar">
-    <div class="logo">DOXXERVIDEOS</div>
-</header>
-
 <main class="container">
 
-    <!-- VÍDEO 1 - Freddy -->
+    <!-- NOVO VÍDEO (mais recente) -->
     <div class="card video-card">
         <div class="badge">+18</div>
         <div class="video-wrapper">
-            <iframe src="https://player.vimeo.com/video/1168637536" allowfullscreen></iframe>
+            <iframe src="https://drive.google.com/file/d/19A1YOcdCFWR6QNVV0hUv7IM69GYQzrj_/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <h2 class="title glitch">JOGANDO FREDDY FAZBOOBS ATE MORRER + EXTRAS</h2>
-        <p class="views">👁 67.337 visualizações • 26/02/2026</p>
+        <h2 class="title glitch">Jogando Smillers Den Deluxxx até morrer</h2>
+        <p class="views">👁 67.067 visualizações • 27/02/2026</p>
     </div>
 
-    <!-- VÍDEO 2 - Femboy -->
+    <!-- POST INFORMATIVO -->
+    <div class="card post">
+        <h2 class="title glitch">📢 NOVO VÍDEO CHEGANDO!</h2>
+        <p>Rapaziada, vou postar vídeo hoje, fiquem ligados!</p>
+        <p class="views">27/02/2026</p>
+    </div>
+
+    <!-- POST EASTER EGG -->
+    <div class="card post">
+        <h2 class="title glitch">📢 NOVO EASTER EGG!</h2>
+        <p>Adicionei um easter egg no site, descubram e vão no canal do <strong>SpherexMC</strong> e comentem no vídeo mais recente "eu achei".</p>
+        <p>Não esqueçam de falar a mensagem que apareceu na tela!</p>
+        <p class="views">26/02/2026</p>
+    </div>
+
+    <!-- POST ESCLARECIMENTO -->
+    <div class="card post">
+        <h2 class="title glitch">📌 ESCLARECIMENTO</h2>
+        <p>Rapaziada, esse site eu criei para postar vídeos que ninguém conseguiria postar no YouTube.  
+        Esse site não tem nada relacionado ao PornHub ou outros sites externos.</p>
+        <p class="views">26/02/2026</p>
+    </div>
+
+    <!-- VÍDEO 2 -->
     <div class="card video-card">
         <div class="badge">+18</div>
         <div class="video-wrapper">
@@ -53,19 +45,14 @@
         <p class="views">👁 100.872 visualizações • 26/02/2026</p>
     </div>
 
-    <!-- POST 26/02 -->
-    <div class="card post">
-        <h2 class="title glitch">📌 ESCLARECIMENTO</h2>
-        <p>Rapaziada, esse site eu criei para postar vídeos que ninguém conseguiria postar no YouTube.  
-        Esse site não tem nada relacionado ao PornHub ou outros sites externos.</p>
-        <p class="views">26/02/2026</p>
-    </div>
-
-    <div class="card post">
-        <h2 class="title glitch">📢 NOVO EASTER EGG!</h2>
-        <p>Adicionei um easter egg no site, descubram e vão no canal do <strong>SpherexMC</strong> e comentem no vídeo mais recente "eu achei".</p>
-        <p>Não esqueçam de falar a mensagem que apareceu na tela!</p>
-        <p class="views">26/02/2026</p>
+    <!-- VÍDEO 1 -->
+    <div class="card video-card">
+        <div class="badge">+18</div>
+        <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/1168637536" allowfullscreen></iframe>
+        </div>
+        <h2 class="title glitch">JOGANDO FREDDY FAZBOOBS ATE MORRER + EXTRAS</h2>
+        <p class="views">👁 67.337 visualizações • 26/02/2026</p>
     </div>
 
     <!-- POST MUSICAL -->
@@ -77,33 +64,13 @@
         <p class="views">26/02/2026</p>
     </div>
 
-    <!-- VÍDEO 3 - Smillers Den Deluxxx -->
-    <div class="card video-card">
-        <div class="badge">+18</div>
-        <div class="video-wrapper">
-            <iframe src="https://drive.google.com/file/d/19A1YOcdCFWR6QNVV0hUv7IM69GYQzrj_/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <h2 class="title glitch">Jogando Smillers Den Deluxxx até morrer</h2>
-        <p class="views">👁 67.067 visualizações • 27/02/2026</p>
-    </div>
-
-    <!-- NOVO POST REWORKS -->
+    <!-- POST NOVO: STREAM -->
     <div class="card post">
-        <h2 class="title glitch">📢 SITE REWORKS!</h2>
-        <p>Esse site já teve uns 27 reworks em só 2 dias 😅</p>
+        <h2 class="title glitch">📡 PLANEJAMENTO</h2>
+        <p>Irei tentar implementar uma função de stream nesse site para streamar.</p>
         <p class="views">27/02/2026</p>
     </div>
 
 </main>
 
 <footer>© 2026 DoxxerVideos</footer>
-
-<!-- BOTÕES KONAMI TOUCH -->
-<div id="konamiButtons" class="hidden">
-    <button id="btnB">B</button>
-    <button id="btnA">A</button>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
