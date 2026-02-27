@@ -1,245 +1,155 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
 }
 
-html, body {
-  min-height: 100%;
-  background: #000;
-  color: white;
-  overflow-x: hidden;
+html,body{
+  background:black;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* MATRIX / PLASMA */
-canvas#matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at center, rgba(0,255,0,0.05), rgba(255,0,0,0.05));
+/* MATRIX */
+#matrix{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
-/* BOOT SCREEN */
-#bootScreen {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  font-family: monospace;
-  color: #00ff88;
-  padding: 10px;
+/* BOOT */
+#bootScreen{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  font-family:monospace;
+  color:#00ff88;
+  transition:opacity 1s ease;
 }
 
-.terminal {
-  width: 90%;
-  max-width: 600px;
-  white-space: pre-wrap;
-  font-size: 18px;
+#bootScreen.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
+.terminal{
+  width:90%;
+  max-width:600px;
+  font-size:18px;
+  white-space:pre-wrap;
 }
 
 /* TOPBAR */
-.topbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 15px;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid #ff0000;
-  display: flex;
-  justify-content: center;
-  z-index: 999;
+.topbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px;
+  background:rgba(0,0,0,0.9);
+  border-bottom:2px solid red;
+  text-align:center;
+  z-index:1000;
 }
 
-.logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: #00ff88;
-  text-shadow: 0 0 15px #00ff88, 0 0 30px #ff0000;
+.logo{
+  font-size:24px;
+  color:#00ff88;
+  text-shadow:0 0 10px #00ff88,0 0 20px red;
 }
 
 /* CONTAINER */
-.container {
-  margin-top: 100px;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 25px;
+.container{
+  margin-top:100px;
+  padding:20px;
+  display:flex;
+  flex-direction:column-reverse;
+  gap:25px;
 }
 
 /* CARD */
-.card {
-  background: rgba(20,20,20,0.95);
-  border: 1px solid #ff0000;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: 0.5s;
-  opacity: 0;
-  transform: translateY(30px);
-  box-shadow: 0 0 15px #00ff88, 0 0 20px #ff0000;
-  position: relative;
+.card{
+  background:rgba(20,20,20,0.95);
+  border:1px solid red;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 0 15px #00ff88,0 0 25px red;
+  transition:0.4s;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
+.card:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 30px #00ff88,0 0 40px red;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 40px #00ff88, 0 0 40px #ff0000;
-}
-
-.video-wrapper {
-  position: relative;
-  padding-top: 56.25%;
+.video-wrapper{
+  position:relative;
+  padding-top:56.25%;
 }
 
 .video-wrapper iframe,
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 10px;
+.video-wrapper video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:none;
 }
 
-/* BADGE +18 */
-.badge {
-  position: absolute;
-  background: #ff0000;
-  color: white;
-  padding: 6px 10px;
-  font-size: 13px;
-  border-radius: 10px;
-  margin: 8px;
-  animation: pulse 1.2s infinite;
-  z-index: 2;
+.badge{
+  position:absolute;
+  background:red;
+  padding:6px 10px;
+  margin:10px;
+  font-size:13px;
+  border-radius:8px;
+  animation:pulse 1s infinite;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 5px #ff0000; }
-  50% { box-shadow: 0 0 25px #ff0000; }
-  100% { box-shadow: 0 0 5px #ff0000; }
+@keyframes pulse{
+  0%{box-shadow:0 0 5px red;}
+  50%{box-shadow:0 0 20px red;}
+  100%{box-shadow:0 0 5px red;}
 }
 
-/* GLITCH */
-.glitch {
-  animation: glitch 1s infinite;
-  color: #00ff88;
+.title{
+  padding:12px;
+  font-weight:bold;
+  color:#00ff88;
 }
 
-@keyframes glitch {
-  0% { text-shadow: 2px 2px red, -2px -2px blue; }
-  50% { text-shadow: -2px -2px red, 2px 2px blue; }
-  100% { text-shadow: 2px 2px red, -2px -2px blue; }
+.views{
+  padding:0 12px 12px;
+  font-size:13px;
+  color:#aaa;
 }
 
-.title {
-  padding: 12px 15px;
-  font-size: 18px;
-  font-weight: bold;
+.post{
+  padding:15px;
 }
 
-.views {
-  padding: 0 15px 12px;
-  font-size: 13px;
-  color: #aaa;
-}
-
-.post {
-  padding: 15px;
-}
-
-footer {
-  padding: 15px;
-  text-align: center;
-  color: #00ff88;
-  border-top: 1px solid #ff0000;
-  margin-top: 0;
-}
-
-/* AGE MODAL */
-#ageModal {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.age-box {
-  background: #111;
-  border: 2px solid #ff0000;
-  padding: 30px;
-  text-align: center;
-  border-radius: 12px;
-}
-
-.age-box button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #ff0000;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 15px;
-  border-radius: 8px;
-  color: white;
-  text-shadow: 0 0 8px #ff0000;
-}
-
-/* KONAMI BUTTONS */
-#konamiButtons {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 15px;
-  z-index: 1500;
-}
-
-#konamiButtons button {
-  padding: 12px 20px;
-  font-size: 18px;
-  background: #ff0000;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  animation: pulse 1s infinite;
-}
-
-#konamiButtons.hidden {
-  display: none;
+footer{
+  text-align:center;
+  padding:20px;
+  border-top:1px solid red;
+  margin-top:0;
 }
 
 /* RESPONSIVO */
 @media(max-width:768px){
-  .title { font-size: 16px; }
-  .views { font-size: 12px; }
-  .topbar { padding: 12px; }
-  .logo { font-size: 22px; }
-  .card { border-radius: 12px; }
-  .container { margin-top: 90px; padding: 15px; }
+  .container{padding:15px;margin-top:90px;}
+  .logo{font-size:20px;}
 }
 
 @media(max-width:480px){
-  .title { font-size: 14px; }
-  .views { font-size: 11px; }
-  .badge { font-size: 12px; padding: 5px 8px; }
-  .age-box { padding: 20px; }
-  .container { margin-top: 80px; padding: 12px; }
-  }
+  .container{padding:12px;margin-top:80px;}
+  .title{font-size:15px;}
+}
