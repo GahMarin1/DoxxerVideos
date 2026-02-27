@@ -6,6 +6,12 @@ body {
     overflow-x: hidden;
 }
 
+/* BLOQUEIA SCROLL DURANTE BOOT */
+body.booting {
+    overflow: hidden;
+    height: 100vh;
+}
+
 .container {
     display: flex;
     flex-direction: column-reverse;
@@ -14,11 +20,11 @@ body {
 }
 
 .card {
-    background: rgba(20,20,20,0.9);
+    background: rgba(15,15,15,0.95);
     padding: 15px;
     border-radius: 10px;
     position: relative;
-    box-shadow: 0 0 15px red;
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
     transition: 0.3s;
 }
 
@@ -64,31 +70,31 @@ body {
     100% { transform: translate(0,0); }
 }
 
+/* BOOT */
 #bootScreen {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: black;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 999;
 }
 
 .terminal {
-    color: #0f0;
+    color: #00ff00;
     font-size: 18px;
 }
 
+/* AGE */
 #ageModal {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
+    inset: 0;
+    background: rgba(0,0,0,0.95);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 998;
+    z-index: 9998;
 }
 
 .age-box {
@@ -96,19 +102,4 @@ body {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-}
-
-#konamiButtons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
-#konamiButtons button {
-    background: red;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 50%;
 }
