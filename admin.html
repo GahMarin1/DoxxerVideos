@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoxxerVideos Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-box">
+    <h2>Login Admin</h2>
+    <input type="password" id="password" placeholder="Senha">
+    <button id="loginBtn">Entrar</button>
+    <p id="loginMsg"></p>
+  </div>
+</div>
+
+<div id="adminPanel" class="hidden">
+  <h1>Painel Admin</h1>
+
+  <div class="post-creator">
+    <input type="text" id="postTitle" placeholder="Título do post">
+    <textarea id="postContent" placeholder="Descrição"></textarea>
+    <input type="text" id="postMedia" placeholder="Link Vimeo, iframe ou imagem">
+    <select id="postType">
+      <option value="video">Vídeo</option>
+      <option value="post">POST</option>
+      <option value="image">Imagem</option>
+    </select>
+    <input type="text" id="postViews" placeholder="Views desejadas">
+    <input type="text" id="postDate" placeholder="Data do post">
+    <button id="createPost">Criar Post</button>
+  </div>
+
+  <div class="admin-actions">
+    <button id="resetLikes">Zerar todos Likes/Dislikes</button>
+  </div>
+
+  <h2>Posts Criados</h2>
+  <div id="postsContainerAdmin"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
