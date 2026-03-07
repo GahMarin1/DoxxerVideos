@@ -11,8 +11,6 @@ margin:0;
 
 }
 
-/* TOPO */
-
 .topbar{
 
 background:black;
@@ -24,12 +22,10 @@ box-shadow:0 0 20px red;
 
 .logo{
 
-letter-spacing:5px;
+letter-spacing:4px;
 font-size:14px;
 
 }
-
-/* CONTAINER */
 
 .container{
 
@@ -39,69 +35,40 @@ padding:15px;
 
 }
 
-/* CARDS */
-
 .card{
 
 background:#0b0b0b;
 padding:20px;
-margin-bottom:25px;
 border-radius:14px;
 box-shadow:0 0 10px rgba(255,0,0,0.3);
-position:relative;
+margin-bottom:20px;
 
 }
-
-/* TITULO */
 
 .title{
 
-margin-top:10px;
-font-size:20px;
+margin-bottom:10px;
 
 }
 
-/* VISUALIZAÇÕES */
+.media{
+
+width:100%;
+border-radius:10px;
+margin-top:10px;
+
+}
 
 .views{
 
 opacity:0.7;
 font-size:13px;
-margin-top:5px;
 
 }
-
-/* BADGE +18 */
-
-.badge{
-
-position:absolute;
-top:10px;
-left:10px;
-background:red;
-padding:4px 10px;
-border-radius:10px;
-font-size:11px;
-
-}
-
-/* VIDEO */
-
-iframe,
-video{
-
-width:100%;
-border-radius:10px;
-margin-top:10px;
-min-height:200px;
-
-}
-
-/* BOTÕES */
 
 .actions{
 
-margin-top:12px;
+margin-top:10px;
 display:flex;
 gap:10px;
 
@@ -112,10 +79,9 @@ button{
 background:#111;
 color:white;
 border:1px solid #333;
-padding:8px 14px;
+padding:8px 12px;
 border-radius:10px;
 cursor:pointer;
-font-size:14px;
 
 }
 
@@ -138,63 +104,12 @@ padding:10px;
 .card{
 
 padding:15px;
-margin-bottom:18px;
-
-}
-
-.title{
-
-font-size:18px;
-
-}
-
-.views{
-
-font-size:12px;
 
 }
 
 button{
 
-font-size:15px;
 padding:10px 14px;
-
-}
-
-iframe,
-video{
-
-min-height:180px;
-
-}
-
-}
-
-/* MOBILE MUITO PEQUENO */
-
-@media (max-width:400px){
-
-.logo{
-
-font-size:12px;
-
-}
-
-.title{
-
-font-size:17px;
-
-}
-
-button{
-
-width:100%;
-
-}
-
-.actions{
-
-flex-direction:column;
 
 }
 
