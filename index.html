@@ -3,110 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DoxxerVideos - Encerrado</title>
-
-<style>
-*{box-sizing:border-box;}
-
-body{
-margin:0;
-background:black;
-color:white;
-font-family:monospace;
-user-select:none;
--webkit-user-select:none;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-padding:30px;
-}
-
-.glitch{
-text-align:center;
-color:red;
-font-size:28px;
-text-shadow:0 0 10px red;
-margin-bottom:10px;
-}
-
-.sub{
-text-align:center;
-font-size:15px;
-opacity:0.6;
-margin-bottom:40px;
-}
-
-.final-post p{
-font-size:18px;
-line-height:1.9;
-margin-bottom:25px;
-color:#ccc;
-}
-
-.year{
-opacity:0.4;
-font-size:14px;
-text-align:center;
-margin-top:40px;
-}
-
-@media(max-width:600px){
-.container{padding:20px;}
-.final-post p{font-size:17px;}
-}
-</style>
-
+<title>DoxxerVideos</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<header class="topbar">
+<div class="logo">DOXXERVIDEOS</div>
+</header>
 
-<h1 class="glitch">⚠ SITE ENCERRADO</h1>
-<h2 class="sub">você queria ver meus vídeos, já é tarde.</h2>
+<main class="container">
 
-<div class="final-post">
+<!-- POST VOLTA -->
+<div class="card" data-id="volta">
+<h2 class="title">🔥 O SITE VOLTOU</h2>
+<p>Sim… eu voltei com novas ideias.</p>
 
-<p>Depois de mais de 2 meses sem atividade, eu decidi encerrar esse site.</p>
-<p>Os vídeos ainda podem existir por aí… espalhados pela internet.</p>
-<p>Mas esse lugar acabou.</p>
-<p>Meu nome é <strong>Trixxie</strong>.</p>
-<p>Esse é o nome que usei aqui.</p>
-<p>Eu participo do canal <strong>SpherexMC</strong>.</p>
-<p>No começo isso era só uma ideia.</p>
-<p>Algo caótico, sem regra, só postar e ver no que dava.</p>
-<p>Mas depois de um tempo… começou a ficar vazio.</p>
-<p>Eu percebi que estava só repetindo.</p>
-<p>Gravar, postar, repetir.</p>
-<p>Sem evolução.</p>
-<p>Sem propósito.</p>
-<p>E eu cansei disso.</p>
-<p>Hoje eu estou focado em algo maior.</p>
-<p>Estou desenvolvendo o jogo <strong>Run4Dead</strong>.</p>
-<p>E isso sim me faz continuar.</p>
-<p>Criar algo real.</p>
-<p>Aprender.</p>
-<p>Evoluir.</p>
-<p>Esse site foi uma fase.</p>
-<p>Agora acabou.</p>
-<p>Se você leu até aqui… é isso.</p>
-<p>Adeus.</p>
+<div class="actions">
+<button class="like">👍 <span>0</span></button>
+<button class="dislike">👎 <span>0</span></button>
+</div>
+</div>
 
-<p class="year">2026 - 2026</p>
+<!-- MODS -->
+<h2 class="section">🧪 MODS</h2>
+
+<div class="card" data-id="mods">
+<div class="badge-proibido">PROIBIDO</div>
+
+<h3 class="title">Mods Experimentais</h3>
+
+<p>Nenhum mod foi liberado ainda.</p>
+<p>Os testes ainda estão sendo feitos...</p>
+<p>Volte mais tarde.</p>
 
 </div>
 
+<!-- GAMEPLAYS -->
+<h2 class="section">🎮 GAMEPLAYS</h2>
+
+<div class="card" data-id="smillers">
+
+<h3 class="title">Smillers Den Deluxxx</h3>
+
+<iframe class="media"
+src="https://drive.google.com/file/d/19A1YOcdCFWR6QNVV0hUv7IM69GYQzrj_/preview">
+</iframe>
+
+<div class="actions">
+<button class="like">👍 <span>0</span></button>
+<button class="dislike">👎 <span>0</span></button>
+</div>
 </div>
 
-<script>
-document.addEventListener("keydown", (e)=>{
-if(e.ctrlKey && ["c","x","u","s"].includes(e.key.toLowerCase())){
-e.preventDefault();
-}
-});
-</script>
+<div class="card" data-id="navio">
+
+<h3 class="title">Menino Fazendo Navio</h3>
+
+<iframe class="media"
+src="https://player.vimeo.com/video/1169012208">
+</iframe>
+
+<div class="actions">
+<button class="like">👍 <span>0</span></button>
+<button class="dislike">👎 <span>0</span></button>
+</div>
+</div>
+
+<div class="card" data-id="freddy">
+
+<h3 class="title">Freddy Fazboobs</h3>
+
+<iframe class="media"
+src="https://player.vimeo.com/video/1168637536">
+</iframe>
+
+<div class="actions">
+<button class="like">👍 <span>0</span></button>
+<button class="dislike">👎 <span>0</span></button>
+</div>
+</div>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
